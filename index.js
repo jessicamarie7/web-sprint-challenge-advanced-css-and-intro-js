@@ -209,18 +209,18 @@ Practice accessing data above by console.log-ing following items:
 
 //(1) Name of the first artist (0th index) in the array
 
-console.log(artists[0]["name"]);
+console.log(artists[0].name);
 
 //(2) Bio of the third artist (2nd index) in the array 
 
-console.log(artists[2]["bio"]);
+console.log(artists[2].bio);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
-artists[artists.indexOf(8).name] = "Vincent Van Gogh"
+artists[8].name = "Vincent Van Gogh"
 
 
 
@@ -233,7 +233,7 @@ artists[artists.indexOf(8).name] = "Vincent Van Gogh"
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
 function getArtistByIndex(array, number) {
-  return `the artist at index ${array.number} is ${array.name}`
+  return `the artist at index ${array[number].id} is ${array[number].name}`
 }  
 
 
@@ -249,8 +249,9 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 function get20s(array){
   let newArray = [];
     for (let i=0; i < array.length; i++){
-      if (array[i].includes("years" > 1899 && "years" < 2000)){
-        newArray.push(array[i]);
+      var dates = array[i].years.split(" - ")
+      if (dates[0]>1899 && dates[1]<2000){
+        newArray.push(array[i].name);
       }
     }
     return newArray;
@@ -269,8 +270,8 @@ function get20s(array){
 
 function removeArtist(array, number){
    const index = array.indexOf(number);
-    if (index > -1) {
-      array.splice(index, 1);
+    if (number > -1) {
+      array.splice(number, 1);
     }
     return array.length;
 }
@@ -293,9 +294,10 @@ Use addArtist to do the following:
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
 function addArtist(array){
-    array.push({id: 20, name: Jessica, years: 1983 - 22, genre: Web Design, nationality: American, bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.})
-  }
+    array.push({id: 20, name: "Jessica", years: "1983 - 22", genre: "Web Design", nationality: "American", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."})
   return array;
+  }
+  
   
 
   
@@ -310,11 +312,11 @@ For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte
 function lotsOfArt(array){
   const newArray = [];
   for (let i=0; i < array.length; i++){
-    if (array[i].includes("paintings" >= 100)){
-      results.push(newArray[i]);
+    if (array[i].paintings >= 100){
+      newArray.push(array[i].name);
     }
   }
-  return results;
+  return newArray;
 }
 
 

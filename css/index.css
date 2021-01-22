@@ -138,11 +138,33 @@ button:hover{
 /* Media Queries */
 /* Phone View */
 @media(max-width: 500px){
-    .title-container {
-        height: 30vh;
+    h1 {
+        font-size: 4rem;
     }
-
+    
+    .title-container div {
+        height: 30vh;
+        width: 50%;
+    }
+  
     .artists-container {
         flex-direction: column;
+        justify-content: none;
+        width: 100%;
+        margin: 25%;
+        text-align: center;
+                
+    }
+
+    .artist {
+        width: 50%;
+        text-align: center;
+        justify-content: none;
+        margin: 0;
+    }
+
+    .artist img {
+        height: 50%;
+        width: 50%;
     }
 }
