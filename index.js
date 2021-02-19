@@ -232,12 +232,16 @@ console.log(artists[7].name);
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array, number, string) {
-   
-// return `the artist at index ${number} is ${string}`;
-}  
+function getArtistByIndex(array, key1, key2) {
+  for(let i = 0; i < array.length; i++){
+    console.log(`the artist at index ${array[i][key1]} is ${array[i][key2]}`);
+  }
 
-// console.log(getArtistByIndex(artists{artists, [18], artists.name)});
+}
+  
+
+
+console.log(getArtistByIndex(artists, 'id', 'name'));
 
 
 
@@ -252,7 +256,7 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 function get20s(array){
   const newArray = [];
   for(let i = 0; i<array.length; i++){
-    if(array[i].years.includes('GRRRRRRRRER!!!!!!!!!!!')){
+    if(array[i].years.includes('19')){
       newArray.push(array[i].names);
     }
   }
@@ -313,10 +317,17 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(array, key1, key2){
+  const newArray = [];
+  for(let i = 0; i<array.length; i++){
+    if(array[i][key1] >= 100){
+      newArray.push(array[i][key2]);
+    }
+  }
+  return newArray;
 }
 
+console.log(lotsOfArt(artists, 'paintings', 'name'));
 
 
 
@@ -342,11 +353,11 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */){
+// function getHTML(/* Code here */){
 
-    /* Code here */
+//     /* Code here */
 
-  }
+//   }
 
 
 /* 💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪
