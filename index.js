@@ -232,16 +232,23 @@ console.log(artists[7].name);
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array, key1, key2) {
-  for(let i = 0; i < array.length; i++){
-    console.log(`the artist at index ${array[i][key1]} is ${array[i][key2]}`);
-  }
+function getArtistByIndex(artists, key) {
+  // artists[key];
+  return `the artist at index ${artists[key].id} is ${artists[key].name}`;
+
+
+  // let myVar = [6, 2, 25];
+  // myVar[0];
+
+  // for(let i = 0; i < array.length; i++){
+  //   console.log(`the artist at index ${array[i][key1]} is ${array[i][key2]}`);
+  // }
 
 }
   
 
 
-console.log(getArtistByIndex(artists, 'id', 'name'));
+console.log(getArtistByIndex(artists, 4));
 
 
 
@@ -253,16 +260,17 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(array){
+
+function get20s(arr){
   const newArray = [];
-  for(let i = 0; i<array.length; i++){
-    if(array[i].years.includes('19')){
-      newArray.push(array[i].names);
+  for(let i = 0; i<arr.length; i++){
+    if((arr[i].years.indexOf('19') === 0) && (arr[i].years.indexOf('- 19') > 0)){
+      newArray.push(arr[i].name);
     }
   }
   return newArray
 }
-
+console.log('Artists who were born and died in the 20th century');
 console.log(get20s(artists));
 
 
